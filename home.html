@@ -11,7 +11,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="pageTitle">SOTA-eApps | Links & Projects</title>
+    <title data-i18n="pageTitle">SOTA-eApps | Links</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -107,7 +107,7 @@
         }
 
         .company-name {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 800;
             background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
@@ -133,6 +133,7 @@
             padding-inline-start: 10px;
             border-bottom: 1px dashed var(--border-color);
             padding-bottom: 5px;
+            margin-top: 15px;
         }
 
         .link-card {
@@ -151,7 +152,7 @@
             font-size: 1.15rem;
             font-weight: 600;
             margin-bottom: 18px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             position: relative;
             overflow: hidden;
@@ -160,12 +161,24 @@
         .link-card i {
             position: absolute;
             left: 25px; /* في الإنجليزي يسار */
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--primary);
             transition: all 0.3s ease;
         }
         
-        html[dir="rtl"] .link-card i {
+        /* تعديل للأيقونة لو كانت صورة مش FontAwesome */
+        .link-card img.custom-icon {
+            position: absolute;
+            left: 20px;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        html[dir="rtl"] .link-card i,
+        html[dir="rtl"] .link-card img.custom-icon {
             left: auto;
             right: 25px; /* في العربي يمين */
         }
@@ -174,13 +187,31 @@
             transform: translateY(-5px) scale(1.02);
             border-color: var(--primary);
             box-shadow: 0 15px 30px rgba(14, 165, 233, 0.2);
-            background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(99, 102, 241, 0.1));
-            color: var(--primary);
+            color: #fff;
         }
 
-        .link-card:hover i {
+        .link-card:hover i,
+        .link-card:hover img.custom-icon {
             transform: scale(1.2);
         }
+
+        /* ألوان مخصصة عند الـ Hover لوسائل التواصل */
+        .btn-nestbook:hover { background: linear-gradient(135deg, var(--primary), var(--secondary)); border-color: transparent; }
+        .btn-nestbook:hover i { color: #fff; }
+        
+        .btn-facebook:hover { background: #1877F2; border-color: #1877F2; }
+        .btn-facebook:hover i { color: #fff; }
+        
+        .btn-instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); border-color: transparent; }
+        .btn-instagram:hover i { color: #fff; }
+        
+        .btn-whatsapp:hover { background: #25D366; border-color: #25D366; }
+        .btn-whatsapp:hover i { color: #fff; }
+        
+        .btn-email:hover { background: #EA4335; border-color: #EA4335; }
+        .btn-email:hover i { color: #fff; }
+        
+        .btn-contact:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--primary); color: var(--primary); }
 
         /* Footer */
         footer { padding: 30px 20px; text-align: center; border-top: 1px solid var(--border-color); width: 100%; }
@@ -192,7 +223,7 @@
             .company-name { font-size: 1.8rem; }
             .company-bio { font-size: 1rem; }
             .link-card { padding: 15px 20px; font-size: 1.05rem; }
-            .link-card i { font-size: 1.2rem; }
+            .link-card i { font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -216,31 +247,36 @@
 
         <div class="section-label" data-i18n="ourProjects">Our Projects</div>
         
-        <a href="index.html" class="link-card">
-            <i class="fa-solid fa-house-user"></i>
-            <span data-i18n="nestBookLink">NestBook App</span>
+        <a href="https://sota-eapps.github.io/NestBook/index.html" class="link-card btn-nestbook" target="_blank">
+            <img src="nestbook.png" alt="NestBook" class="custom-icon">
+            <span data-i18n="nestBookLink">NestBook Platform</span>
         </a>
 
-        <a href="#" class="link-card">
-            <i class="fa-solid fa-robot"></i>
-            <span data-i18n="uniAiLink">SOTA UniAI</span>
+        <div class="section-label" data-i18n="connectWithUs">Connect With Us</div>
+
+        <a href="https://www.facebook.com/share/1AxnB5qd9C/" class="link-card btn-facebook" target="_blank">
+            <i class="fa-brands fa-facebook"></i>
+            <span data-i18n="facebookLink">Facebook</span>
         </a>
 
-        <a href="#" class="link-card">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <span data-i18n="academicLink">SOTA Academic</span>
+        <a href="https://www.instagram.com/sotaeapps?igsh=MzdvNXdoZWwwd2Ny" class="link-card btn-instagram" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+            <span data-i18n="instagramLink">Instagram</span>
         </a>
 
-        <div class="section-label" style="margin-top: 20px;" data-i18n="connectWithUs">Connect With Us</div>
+        <a href="https://wa.me/201285870672" class="link-card btn-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span data-i18n="whatsappLink">WhatsApp</span>
+        </a>
 
-        <a href="contact.html" class="link-card">
+        <a href="mailto:nestbooksupport@gmail.com" class="link-card btn-email">
+            <i class="fa-solid fa-envelope"></i>
+            <span data-i18n="emailLink">Email Us</span>
+        </a>
+
+        <a href="https://sota-eapps.github.io/NestBook/contact.html" class="link-card btn-contact" target="_blank">
             <i class="fa-solid fa-headset"></i>
-            <span data-i18n="contactLink">Contact Support</span>
-        </a>
-
-        <a href="https://wa.me/201501179906" target="_blank" class="link-card">
-            <i class="fa-brands fa-whatsapp" style="color: #25D366;"></i>
-            <span data-i18n="whatsappLink">WhatsApp Business</span>
+            <span data-i18n="contactLink">Contact Support Center</span>
         </a>
 
     </main>
@@ -254,27 +290,29 @@
     <script>
         const translations = {
             en: {
-                pageTitle: "SOTA-eApps | Links & Projects",
+                pageTitle: "SOTA-eApps | Links",
                 companyBio: "Innovative Mobile & Web Solutions",
                 ourProjects: "Our Projects",
-                nestBookLink: "NestBook App",
-                uniAiLink: "SOTA UniAI Platform",
-                academicLink: "SOTA Academic Channel",
+                nestBookLink: "NestBook Platform",
                 connectWithUs: "Connect With Us",
-                contactLink: "Contact Support",
-                whatsappLink: "WhatsApp Business",
+                facebookLink: "Facebook",
+                instagramLink: "Instagram",
+                whatsappLink: "WhatsApp",
+                emailLink: "Email Us",
+                contactLink: "Contact Support Center",
                 copyright: "© 2026 SOTA-eApps. All rights reserved."
             },
             ar: {
-                pageTitle: "SOTA-eApps | روابط ومشاريع",
+                pageTitle: "SOTA-eApps | روابط",
                 companyBio: "حلول برمجية مبتكرة وتطبيقات ذكية",
                 ourProjects: "مشاريعنا",
-                nestBookLink: "تطبيق NestBook للعقارات",
-                uniAiLink: "منصة SOTA UniAI",
-                academicLink: "قناة SOTA Academic",
+                nestBookLink: "منصة NestBook",
                 connectWithUs: "تواصل معنا",
-                contactLink: "الدعم الفني",
-                whatsappLink: "واتساب للأعمال",
+                facebookLink: "فيسبوك",
+                instagramLink: "إنستجرام",
+                whatsappLink: "واتساب",
+                emailLink: "مراسلة عبر البريد",
+                contactLink: "مركز الدعم الفني",
                 copyright: "© 2026 SOTA-eApps. جميع الحقوق محفوظة."
             }
         };
